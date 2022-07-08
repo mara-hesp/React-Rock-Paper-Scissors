@@ -1,13 +1,16 @@
 import './App.css';
-import { useState } from 'react'
+import { useState } from 'react';
+import Win from './components/Win/Win';
+import Lose from './components/Lose/Lose';
+import Game from './components/Game/Game';
 
 
 function App() {
   const [score, setScore] = useState(0)
-    const [lives, setLives] = useState(3)
-    const [message, setMessage] = useState('')
-  
-    let cpu
+  const [lives, setLives] = useState(3)
+  const [message, setMessage] = useState('')
+
+  let cpu
   
     const btnRock = () => {
   
@@ -17,10 +20,10 @@ function App() {
         setMessage("Empate")
     } else if (cpu < 6) {
         setMessage("Ganó CPU")
-        if (lives > 0) setLives(lives - 1)
+        setLives(lives - 1)
     } else if (cpu >= 6) {
         setMessage("¡Ganaste!")
-        if (score < 3) setScore(score + 1)
+        setScore(score + 1)
     }
     }
   
@@ -30,12 +33,12 @@ function App() {
   
       if (cpu < 3) {
         setMessage("¡Ganaste!")
-        if (score < 3) setScore(score + 1)
+        setScore(score + 1)
     } else if (cpu < 6) {
         setMessage("Empate")
     } else if (cpu >= 6) {
         setMessage("Ganó CPU")
-        if (lives > 0) setLives(lives - 1)
+        setLives(lives - 1)
     }
     }
   
@@ -45,33 +48,24 @@ function App() {
   
       if (cpu < 3) {
         setMessage("Ganó CPU")
-        if (lives > 0) setLives(lives - 1)
+        setLives(lives - 1)
     } else if (cpu < 6) {
         setMessage("¡Ganaste!")
-        if (score < 3) setScore(score + 1)
+        setScore(score + 1)
     } else if (cpu >= 6) {
         setMessage("Empate")
     }
     }
 
-
+    function refreshPage() {
+      window.location.reload(false);
+    }
 
   return (
     <div className="App">
-      <div className="counter">
-       <div>
-          <p>Score:</p>
-          <h2>{score}</h2>
-        </div> 
-        <div>
-          <p>Lives:</p>
-          <h2>{lives}</h2>
-        </div>
-      </div>
-            <button className="r" onClick={btnRock}>Rock</button>
-            <button className="p" onClick={btnPaper}>Paper</button>
-            <button className="s" onClick={btnScissors}>Scissors</button>
-            <h1>{message}</h1>
+      {lives < 0 ? <Lose btn={refreshPage}/>
+      : score > 3 ? <Win btn={refreshPage}/>
+      : <Game rock={btnRock} paper={btnPaper} scissors={btnScissors} message={message} score={score} lives={lives}/>}
     </div>
   );
 }

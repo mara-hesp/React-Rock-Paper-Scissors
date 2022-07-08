@@ -57,3 +57,15 @@ button {
     background-color: rgb(114, 197, 31);
     color: aliceblue;
 }
+
+.win h1, .lose h1 {
+    font-size: 4em;
+}
+
+.win h2 {
+    color: rgb(114, 197, 31);
+}
+
+.lose h2 {
+    color: chocolate;
+}
