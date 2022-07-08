@@ -16,12 +16,12 @@ function App() {
       cpu = Math.floor(Math.random() * 9)
   
       if (cpu < 3) {
-        setMessage("Empate")
+        setMessage("Draw")
     } else if (cpu < 6) {
-        setMessage("Ganó CPU")
+        setMessage("Point to CPU")
         setLives(lives - 1)
     } else if (cpu >= 6) {
-        setMessage("¡Ganaste!")
+        setMessage("You Win!")
         setScore(score + 1)
     }
     }
@@ -31,12 +31,12 @@ function App() {
       cpu = Math.floor(Math.random() * 9)
   
       if (cpu < 3) {
-        setMessage("¡Ganaste!")
+        setMessage("You Win!")
         setScore(score + 1)
     } else if (cpu < 6) {
-        setMessage("Empate")
+        setMessage("Draw")
     } else if (cpu >= 6) {
-        setMessage("Ganó CPU")
+        setMessage("Point to CPU")
         setLives(lives - 1)
     }
     }
@@ -46,13 +46,13 @@ function App() {
       cpu = Math.floor(Math.random() * 9)
   
       if (cpu < 3) {
-        setMessage("Ganó CPU")
+        setMessage("Point to CPU")
         setLives(lives - 1)
     } else if (cpu < 6) {
-        setMessage("¡Ganaste!")
+        setMessage("You Win!")
         setScore(score + 1)
     } else if (cpu >= 6) {
-        setMessage("Empate")
+        setMessage("Draw")
     }
     }
 
