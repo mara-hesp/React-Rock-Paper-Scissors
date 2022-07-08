@@ -1,8 +1,7 @@
 import './App.css';
 import { useState } from 'react';
-import Win from './components/Win/Win';
-import Lose from './components/Lose/Lose';
-import Game from './components/Game/Game';
+import Game from './components/Game/Game'
+import End from './components/End/End';
 
 
 function App() {
@@ -63,8 +62,8 @@ function App() {
 
   return (
     <div className="App">
-      {lives < 0 ? <Lose btn={refreshPage}/>
-      : score > 3 ? <Win btn={refreshPage}/>
+      {lives < 0 ? <End h1="Oh no..." h2="You lost :(" color="lose" btn={refreshPage}/>
+      : score > 3 ? <End h1="Yay!" h2="You won!" color="win" btn={refreshPage}/>
       : <Game rock={btnRock} paper={btnPaper} scissors={btnScissors} message={message} score={score} lives={lives}/>}
     </div>
   );
