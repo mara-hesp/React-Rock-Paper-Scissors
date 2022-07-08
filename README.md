@@ -1,4 +1,4 @@
-# Rock Papes Scissors Game!
+# Rock Paper Scissors Game!
 
 A very simple rock-paper-scissors game!
 
